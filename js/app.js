@@ -1,32 +1,59 @@
-//======================================
-// Pocharuzu Register
-// Version 0.2.2
-//======================================
+// ================================
+// ぽちゃるずレジ Version 1.0
+// app.js Part1
+// ================================
+
+// ---------- LocalStorage ----------
+
+const STORAGE_KEY = "pocharuzu-register-data";
+
+let salesData = JSON.parse(localStorage.getItem(STORAGE_KEY));
+
+if (!salesData) {
+    salesData = products.map(product => ({
+        id: product.id,
+        sold: 0
+    }));
+}
+
+// ---------- 要素取得 ----------
 
 const productList = document.getElementById("productList");
+
 const totalSales = document.getElementById("totalSales");
 const totalCount = document.getElementById("totalCount");
+const cashSales = document.getElementById("cashSales");
+const paypaySales = document.getElementById("paypaySales");
 
-let sales = 0;
-let count = 0;
+const resetButton = document.getElementById("resetButton");
 
-const cart = {};
+// ---------- データ取得 ----------
 
-//------------------------------
-// 商品カード生成
-//------------------------------
+function getSold(productId) {
 
-function renderProducts(){
+    const item = salesData.find(data => data.id === productId);
+
+    return item ? item.sold : 0;
+
+}
+
+function getStock(product) {
+
+    return product.stock - getSold(product.id);
+
+}
+
+// ---------- 商品一覧描画 ----------
+
+function renderProducts() {
 
     productList.innerHTML = "";
 
-    products.forEach(product=>{
+    products.forEach(product => {
 
-        if(cart[product.id] == null){
+        const sold = getSold(product.id);
 
-            cart[product.id] = 0;
-
-        }
+        const stock = getStock(product);
 
         const card = document.createElement("div");
 
@@ -38,52 +65,43 @@ function renderProducts(){
 
             <h3>${product.name}</h3>
 
-            <p class="price">¥${product.price}</p>
+            <div class="price">¥${product.price}</div>
 
-<div class="product-stats">
+            <div class="product-stats">
 
-    <p class="stock">
-        在庫：
-        <span id="stock-${product.id}">
-            ${product.stock - cart[product.id]}
-        </span>
-    </p>
+                <p class="${stock <= 5 ? "low-stock" : ""}">
+                    在庫：${stock}
+                </p>
 
-    <p>
-        販売：
-        <span id="sold-${product.id}">
-            ${cart[product.id]}
-        </span>
-    </p>
+                <p>
+                    販売数：${sold}
+                </p>
 
-    <p class="product-sales">
+                <p class="product-sales">
+                    売上：¥${sold * product.price}
+                </p>
 
-        売上：
-
-        <span id="sales-${product.id}">
-            ¥${(cart[product.id] * product.price).toLocaleString()}
-        </span>
-
-    </p>
-
-</div>
+            </div>
 
         </div>
 
         <div class="product-counter">
 
             <button
-            onclick="minusProduct(${product.id})">
-            −
+                class="minus"
+                onclick="minusProduct(${product.id})"
+            >
+                −
             </button>
 
-            <span id="count-${product.id}">
-                ${cart[product.id]}
-            </span>
+            <span>${sold}</span>
 
             <button
-            onclick="plusProduct(${product.id})">
-            ＋
+                class="plus"
+                onclick="plusProduct(${product.id})"
+                ${stock <= 0 ? "disabled" : ""}
+            >
+                ＋
             </button>
 
         </div>
@@ -95,124 +113,145 @@ function renderProducts(){
     });
 
 }
+// ================================
+// app.js Part2
+// 売上・在庫・ダッシュボード更新
+// ================================
 
-//------------------------------
-// 合計更新
-//------------------------------
+// ---------- LocalStorage保存 ----------
 
-function updateTotals(){
+function saveData() {
 
-    sales = 0;
-    count = 0;
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(salesData)
+    );
 
-    products.forEach(product=>{
+}
 
-        sales += cart[product.id] * product.price;
+// ---------- ダッシュボード更新 ----------
 
-        count += cart[product.id];
+function updateDashboard() {
+
+    let totalSale = 0;
+    let totalItemCount = 0;
+
+    products.forEach(product => {
+
+        const sold = getSold(product.id);
+
+        totalItemCount += sold;
+        totalSale += sold * product.price;
 
     });
 
     totalSales.textContent =
-        "¥" + sales.toLocaleString();
+        `¥${totalSale.toLocaleString()}`;
 
     totalCount.textContent =
-        count + "個";
+        `${totalItemCount}個`;
+
+    // Version1.0では全て現金扱い
+    cashSales.textContent =
+        `¥${totalSale.toLocaleString()}`;
+
+    paypaySales.textContent =
+        "¥0";
 
 }
 
-//------------------------------
-// プラス
-//------------------------------
+// ---------- ＋ボタン ----------
 
-function plusProduct(id){
+function plusProduct(productId) {
 
-    cart[id]++;
+    const product =
+        products.find(p => p.id === productId);
 
-    document.getElementById(
+    const data =
+        salesData.find(d => d.id === productId);
 
-        "count-"+id
+    if (!product || !data) return;
 
-    ).textContent = cart[id];
-    const product = products.find(p => p.id === id);
+    if (data.sold >= product.stock) {
 
-document.getElementById(
-    "stock-"+id
-).textContent = product.stock - cart[id];
-
-document.getElementById(
-    "sold-"+id
-).textContent = cart[id];
-
-document.getElementById(
-    "sales-"+id
-).textContent =
-"¥" + (cart[id] * product.price).toLocaleString();
-
-    updateTotals();
-
-}
-
-//------------------------------
-// マイナス
-//------------------------------
-
-function minusProduct(id){
-
-    if(cart[id] <= 0){
+        alert("在庫がありません。");
 
         return;
 
     }
 
-    cart[id]--;
+    data.sold++;
 
-    document.getElementById(
-
-        "count-"+id
-        const product = products.find(p => p.id === id);
-
-document.getElementById(
-    "stock-"+id
-).textContent = product.stock - cart[id];
-
-document.getElementById(
-    "sold-"+id
-).textContent = cart[id];
-
-document.getElementById(
-    "sales-"+id
-).textContent =
-"¥" + (cart[id] * product.price).toLocaleString();
-
-    ).textContent = cart[id];
-
-    updateTotals();
-
-}
-
-//------------------------------
-// リセット
-//------------------------------
-
-document
-.getElementById("resetButton")
-.addEventListener("click",()=>{
-
-    products.forEach(product=>{
-
-        cart[product.id]=0;
-
-    });
+    saveData();
 
     renderProducts();
 
-    updateTotals();
+    updateDashboard();
+
+}
+
+// ---------- −ボタン ----------
+
+function minusProduct(productId) {
+
+    const data =
+        salesData.find(d => d.id === productId);
+
+    if (!data) return;
+
+    if (data.sold <= 0) {
+
+        return;
+
+    }
+
+    data.sold--;
+
+    saveData();
+
+    renderProducts();
+
+    updateDashboard();
+
+}
+// ================================
+// app.js Part3
+// 初期化・リセット
+// ================================
+
+// ---------- リセット ----------
+
+resetButton.addEventListener("click", () => {
+
+    const result = confirm(
+        "販売データをすべてリセットしますか？"
+    );
+
+    if (!result) return;
+
+    salesData = products.map(product => ({
+        id: product.id,
+        sold: 0
+    }));
+
+    saveData();
+
+    renderProducts();
+
+    updateDashboard();
 
 });
 
-//------------------------------
+// ---------- 初期化 ----------
 
-renderProducts();
+function initialize() {
 
-updateTotals();
+    renderProducts();
+
+    updateDashboard();
+
+}
+
+// ---------- 起動 ----------
+
+initialize();
