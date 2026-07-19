@@ -2,29 +2,38 @@
 <html lang="ja">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>ぽちゃるずレジ</title>
 
-    <meta name="theme-color" content="#4E6A52">
-
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
 
-    <!-- ヘッダー -->
+    <!-- =========================
+         Header
+    ========================== -->
+
     <header class="header">
 
         <div class="logo-area">
+
             <h1>☕ ぽちゃるずレジ</h1>
+
             <p>Pocharuzu Register</p>
+
         </div>
 
     </header>
 
-    <!-- ダッシュボード -->
+    <!-- =========================
+         Dashboard
+    ========================== -->
+
     <section class="dashboard">
 
         <div class="card sales-card">
@@ -43,39 +52,58 @@
 
         </div>
 
+        <div class="card cash-card">
+
+            <h2>現金</h2>
+
+            <p id="cashSales">¥0</p>
+
+        </div>
+
+        <div class="card paypay-card">
+
+            <h2>PayPay</h2>
+
+            <p id="paypaySales">¥0</p>
+
+        </div>
+
     </section>
 
-    <!-- 商品一覧 -->
-    <main>
+    <!-- =========================
+         Products
+    ========================== -->
 
-        <section class="products">
+    <main class="products">
 
-            <h2>商品一覧</h2>
+        <h2>商品一覧</h2>
 
-            <div id="productList">
-
-                <!-- JavaScriptで商品カードを生成 -->
-
-            </div>
-
-        </section>
+        <div id="productList"></div>
 
     </main>
 
-    <!-- フッター -->
+    <!-- =========================
+         Footer
+    ========================== -->
+
     <footer>
 
         <button id="resetButton">
+
             売上をリセット
+
         </button>
 
         <p class="copyright">
+
             © pocharuzu
+
         </p>
 
     </footer>
 
     <!-- JavaScript -->
+
     <script src="js/products.js"></script>
     <script src="js/app.js"></script>
 
