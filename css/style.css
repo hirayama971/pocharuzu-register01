@@ -318,9 +318,9 @@ footer{
 
     font-size:1.3rem;
 
-    cursor:not-allowed;
+    cursor:pointer;
 
-    opacity:.5;
+    opacity:.1;
 
 }
 
