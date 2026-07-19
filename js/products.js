@@ -4,7 +4,7 @@ const products = [
         id: 1,
         name: "マッチ箱風フレークシール",
         price: 350,
-        stock: 30,
+        stock: 14,
         image: "images/match.png",
         category: "シール"
     },
@@ -17,7 +17,7 @@ const products = [
         id: 2,
         name: "アクリルキーホルダー（チンチラ①）",
         price: 400,
-        stock: 15,
+        stock: 6,
         image: "images/key_chinchilla1.png",
         category: "アクリル"
     },
@@ -26,7 +26,7 @@ const products = [
         id: 3,
         name: "アクリルキーホルダー（チンチラ②）",
         price: 400,
-        stock: 15,
+        stock: 10,
         image: "images/key_chinchilla2.png",
         category: "アクリル"
     },
@@ -35,7 +35,7 @@ const products = [
         id: 4,
         name: "アクリルキーホルダー（カバ①）",
         price: 400,
-        stock: 15,
+        stock: 6,
         image: "images/key_hippo1.png",
         category: "アクリル"
     },
@@ -44,7 +44,7 @@ const products = [
         id: 5,
         name: "アクリルキーホルダー（カバ②）",
         price: 400,
-        stock: 15,
+        stock: 10,
         image: "images/key_hippo2.png",
         category: "アクリル"
     },
@@ -53,7 +53,7 @@ const products = [
         id: 6,
         name: "アクリルキーホルダー（ペンギン①）",
         price: 400,
-        stock: 15,
+        stock: 3,
         image: "images/key_penguin1.png",
         category: "アクリル"
     },
@@ -62,7 +62,7 @@ const products = [
         id: 7,
         name: "アクリルキーホルダー（ペンギン②）",
         price: 400,
-        stock: 15,
+        stock: 10,
         image: "images/key_penguin2.png",
         category: "アクリル"
     },
@@ -75,7 +75,7 @@ const products = [
         id: 8,
         name: "ランダムフレークシール",
         price: 50,
-        stock: 100,
+        stock: 40,
         image: "images/random_flake.png",
         category: "シール"
     },
@@ -88,7 +88,7 @@ const products = [
         id: 9,
         name: "A4クリアファイル",
         price: 500,
-        stock: 20,
+        stock: 4,
         image: "images/a4_clearfile.png",
         category: "クリアファイル"
     },
@@ -97,7 +97,7 @@ const products = [
         id: 10,
         name: "A5クリアファイル",
         price: 400,
-        stock: 20,
+        stock: 10,
         image: "images/a5_clearfile.png",
         category: "クリアファイル"
     },
@@ -110,7 +110,7 @@ const products = [
         id: 11,
         name: "ステッカー（ペンギン）",
         price: 150,
-        stock: 20,
+        stock: 12,
         image: "images/sticker_penguin.png",
         category: "ステッカー"
     },
@@ -119,7 +119,7 @@ const products = [
         id: 12,
         name: "ステッカー（チンチラ）",
         price: 150,
-        stock: 20,
+        stock: 17,
         image: "images/sticker_chinchilla.png",
         category: "ステッカー"
     },
@@ -128,7 +128,7 @@ const products = [
         id: 13,
         name: "ステッカー（ケーキ）",
         price: 150,
-        stock: 20,
+        stock: 17,
         image: "images/sticker_cake.png",
         category: "ステッカー"
     },
@@ -137,7 +137,7 @@ const products = [
         id: 14,
         name: "ステッカー（カバ）",
         price: 150,
-        stock: 20,
+        stock: 18,
         image: "images/sticker_hippo.png",
         category: "ステッカー"
     },
@@ -150,7 +150,7 @@ const products = [
         id: 15,
         name: "フレークシール（赤）",
         price: 200,
-        stock: 20,
+        stock: 22,
         image: "images/flake_red.png",
         category: "シール"
     },
@@ -159,7 +159,7 @@ const products = [
         id: 16,
         name: "フレークシール（緑）",
         price: 200,
-        stock: 20,
+        stock: 17,
         image: "images/flake_green.png",
         category: "シール"
     },
@@ -172,7 +172,7 @@ const products = [
         id: 17,
         name: "ポストカード（ペンギン）",
         price: 150,
-        stock: 20,
+        stock: 14,
         image: "images/post_penguin.png",
         category: "ポストカード"
     },
@@ -181,7 +181,7 @@ const products = [
         id: 18,
         name: "ポストカード（クリームソーダ）",
         price: 150,
-        stock: 20,
+        stock: 14,
         image: "images/post_soda.png",
         category: "ポストカード"
     },
@@ -190,7 +190,7 @@ const products = [
         id: 19,
         name: "ポストカード（海）",
         price: 150,
-        stock: 20,
+        stock: 14,
         image: "images/post_sea.png",
         category: "ポストカード"
     },
@@ -199,7 +199,7 @@ const products = [
         id: 20,
         name: "ポストカード（ナポリタン）",
         price: 150,
-        stock: 20,
+        stock: 14,
         image: "images/post_napolitan.png",
         category: "ポストカード"
     },
@@ -208,7 +208,7 @@ const products = [
         id: 21,
         name: "ポストカード（プリン）",
         price: 150,
-        stock: 20,
+        stock: 15,
         image: "images/post_pudding.png",
         category: "ポストカード"
     },
@@ -217,7 +217,7 @@ const products = [
         id: 22,
         name: "ポストカード（パンケーキ）",
         price: 150,
-        stock: 20,
+        stock: 14,
         image: "images/post_pancake.png",
         category: "ポストカード"
     },
@@ -230,7 +230,7 @@ const products = [
         id: 23,
         name: "ぽち袋",
         price: 100,
-        stock: 30,
+        stock: 9,
         image: "images/pochibukuro.png",
         category: "紙もの"
     }
