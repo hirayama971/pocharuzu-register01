@@ -1,33 +1,46 @@
-/* ==========================================
-   Pocharuzu Register
-   Version 0.1.1 Part1
-========================================== */
+/*==================================================
+    POCHARUZU REGISTER
+    Version 1.0
+==================================================*/
 
-/* ---------- カラーパレット ---------- */
+/*==============================
+    Color
+==============================*/
 
 :root{
 
     --cream:#FFF8E8;
-    --green:#4F6B53;
-    --green-light:#7DA07D;
-    --orange:#E98B3A;
-    --brown:#6C4A35;
-    --white:#ffffff;
-    --shadow:rgba(0,0,0,.12);
+
+    --green:#587056;
+
+    --green-dark:#40513F;
+
+    --orange:#EF8D32;
+
+    --pink:#F9C9D7;
+
+    --white:#FFFFFF;
+
+    --gray:#777;
+
+    --shadow:
+    0 10px 25px rgba(0,0,0,.12);
+
+    --radius:24px;
 
 }
 
-/* ---------- リセット ---------- */
+/*==============================
+    Reset
+==============================*/
 
 *{
+
     margin:0;
+
     padding:0;
+
     box-sizing:border-box;
-}
-
-html{
-
-    font-size:16px;
 
 }
 
@@ -35,18 +48,23 @@ body{
 
     background:var(--cream);
 
-    font-family:
-    "Yu Gothic",
-    "Hiragino Sans",
-    sans-serif;
+    color:var(--green-dark);
 
-    color:var(--brown);
+    font-family:
+
+    "Yu Gothic",
+
+    "Hiragino Sans",
+
+    sans-serif;
 
     min-height:100vh;
 
 }
 
-/* ---------- ヘッダー ---------- */
+/*==============================
+    Header
+==============================*/
 
 .header{
 
@@ -54,25 +72,19 @@ body{
 
     color:white;
 
-    padding:28px 20px;
+    padding:40px 20px;
 
     text-align:center;
 
-    box-shadow:0 5px 15px var(--shadow);
-
-    position:sticky;
-
-    top:0;
-
-    z-index:999;
+    box-shadow:var(--shadow);
 
 }
 
 .logo-area h1{
 
-    font-size:2rem;
+    font-size:2.3rem;
 
-    margin-bottom:6px;
+    margin-bottom:12px;
 
 }
 
@@ -80,21 +92,27 @@ body{
 
     opacity:.8;
 
-    font-size:.95rem;
+    font-size:1rem;
 
 }
 
-/* ---------- ダッシュボード ---------- */
+/*==============================
+    Dashboard
+==============================*/
 
 .dashboard{
 
+    width:min(1200px,95%);
+
+    margin:35px auto;
+
     display:grid;
 
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:
 
-    gap:18px;
+    repeat(4,1fr);
 
-    padding:20px;
+    gap:20px;
 
 }
 
@@ -102,31 +120,39 @@ body{
 
     background:white;
 
-    border-radius:20px;
+    border-radius:var(--radius);
 
-    padding:20px;
-
-    box-shadow:0 10px 20px var(--shadow);
+    padding:28px;
 
     text-align:center;
+
+    box-shadow:var(--shadow);
 
 }
 
 .card h2{
 
-    font-size:1rem;
-
     color:var(--green);
 
-    margin-bottom:15px;
+    margin-bottom:18px;
+
+    font-size:1.1rem;
 
 }
 
-.sales-card p{
+.card p{
 
-    font-size:2rem;
+    font-size:2.2rem;
 
     font-weight:bold;
+
+}
+
+/*==============================
+    Dashboard Colors
+==============================*/
+
+.sales-card p{
 
     color:var(--orange);
 
@@ -134,29 +160,41 @@ body{
 
 .count-card p{
 
-    font-size:2rem;
-
-    font-weight:bold;
-
     color:var(--green);
 
 }
 
-/* ---------- 商品一覧 ---------- */
+.cash-card p{
+
+    color:#4E7C50;
+
+}
+
+.paypay-card p{
+
+    color:#E53935;
+
+}
+
+/*==============================
+    Product Area
+==============================*/
 
 .products{
 
-    padding:20px;
+    width:min(1200px,95%);
+
+    margin:auto;
 
 }
 
 .products h2{
 
-    margin-bottom:20px;
+    margin-bottom:30px;
 
-    color:var(--brown);
+    font-size:2rem;
 
-    font-size:1.5rem;
+    color:var(--green-dark);
 
 }
 
@@ -164,15 +202,19 @@ body{
 
     display:grid;
 
-    gap:20px;
+    gap:25px;
 
 }
 
-/* ---------- フッター ---------- */
+/*==============================
+    Footer
+==============================*/
 
 footer{
 
-    padding:30px;
+    width:min(1200px,95%);
+
+    margin:60px auto;
 
     text-align:center;
 
@@ -186,15 +228,19 @@ footer{
 
     border:none;
 
-    border-radius:50px;
+    padding:
 
-    padding:15px 28px;
+    18px 42px;
+
+    border-radius:999px;
 
     font-size:1rem;
 
     cursor:pointer;
 
-    transition:.3s;
+    transition:.25s;
+
+    box-shadow:0 8px 15px rgba(0,0,0,.15);
 
 }
 
@@ -202,57 +248,32 @@ footer{
 
     transform:translateY(-2px);
 
-    opacity:.9;
-
 }
 
 .copyright{
 
-    margin-top:18px;
+    margin-top:25px;
 
-    opacity:.6;
-
-    font-size:.9rem;
+    color:#999;
 
 }
-
-/* ---------- スマホ ---------- */
-
-@media(max-width:768px){
-
-    .dashboard{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .logo-area h1{
-
-        font-size:1.7rem;
-
-    }
-
-    .sales-card p,
-    .count-card p{
-
-        font-size:1.8rem;
-
-    }
-
-}
-/* ==========================================
-   商品カード
-========================================== */
+/*==================================================
+    Product Card
+==================================================*/
 
 .product-card{
 
-    background:#ffffff;
+    background:linear-gradient(
+        180deg,
+        #FFFFFF 0%,
+        #FFFDF8 100%
+    );
 
-    border-radius:20px;
+    border-radius:24px;
 
-    padding:20px;
+    padding:24px;
 
-    box-shadow:0 8px 18px rgba(0,0,0,.12);
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
 
     display:flex;
 
@@ -260,17 +281,41 @@ footer{
 
     align-items:center;
 
-    gap:20px;
+    gap:24px;
+
+    border:3px solid #F6ECD2;
+
+    transition:.25s;
+
+}
+
+.product-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 18px 30px rgba(0,0,0,.18);
+
+}
+
+/*==============================
+    Product Left
+==============================*/
+
+.product-info{
+
+    flex:1;
 
 }
 
 .product-info h3{
 
-    color:var(--green);
+    font-size:1.4rem;
 
-    margin-bottom:10px;
+    color:var(--green-dark);
 
-    font-size:1.1rem;
+    margin-bottom:12px;
+
+    line-height:1.4;
 
 }
 
@@ -278,19 +323,41 @@ footer{
 
     color:var(--orange);
 
-    font-size:1.3rem;
+    font-size:2rem;
+
+    font-weight:bold;
+
+    margin-bottom:15px;
+
+}
+
+.product-stats{
+
+    display:grid;
+
+    gap:8px;
+
+}
+
+.product-stats p{
+
+    font-size:1rem;
+
+    color:#666;
+
+}
+
+.product-sales{
+
+    color:var(--orange) !important;
 
     font-weight:bold;
 
 }
 
-.stock{
-
-    margin-top:10px;
-
-    color:#666;
-
-}
+/*==============================
+    Counter
+==============================*/
 
 .product-counter{
 
@@ -298,15 +365,29 @@ footer{
 
     align-items:center;
 
-    gap:12px;
+    gap:18px;
+
+}
+
+.product-counter span{
+
+    width:45px;
+
+    text-align:center;
+
+    font-size:1.6rem;
+
+    font-weight:bold;
+
+    color:var(--green-dark);
 
 }
 
 .product-counter button{
 
-    width:42px;
+    width:48px;
 
-    height:42px;
+    height:48px;
 
     border:none;
 
@@ -316,27 +397,300 @@ footer{
 
     color:white;
 
-    font-size:1.3rem;
+    font-size:1.5rem;
 
     cursor:pointer;
 
-    opacity:.1;
+    transition:.2s;
 
 }
 
-.product-counter span{
+.product-counter button:hover{
 
-    width:35px;
+    background:var(--green-dark);
 
-    text-align:center;
+    transform:scale(1.08);
 
-    font-size:1.2rem;
+}
+
+.product-counter button:active{
+
+    transform:scale(.92);
+
+}
+
+/*==============================
+    Stock Warning
+==============================*/
+
+.stock-warning{
+
+    color:#D32F2F !important;
 
     font-weight:bold;
 
 }
 
-@media(max-width:768px){
+/*==============================
+    Sold Card
+==============================*/
+
+.product-card.sold{
+
+    border:3px solid #F3B562;
+
+    background:#FFF7EA;
+
+}
+
+/*==============================
+    Image Area
+==============================*/
+
+.product-image{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    background:#FFF;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:0 5px 10px rgba(0,0,0,.1);
+
+}
+
+.product-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+}
+
+/*==============================
+    Divider
+==============================*/
+
+.product-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    display:none;
+
+}
+/*==================================================
+    Animation
+==================================================*/
+
+@keyframes pop{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.08);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.product-card{
+
+    animation:fadeUp .35s ease;
+
+}
+
+.card p{
+
+    transition:.25s;
+
+}
+
+.card p.update{
+
+    animation:pop .25s ease;
+
+}
+
+/*==================================================
+    Button
+==================================================*/
+
+button{
+
+    font-family:inherit;
+
+}
+
+button:disabled{
+
+    opacity:.45;
+
+    cursor:not-allowed;
+
+}
+
+.product-counter button.minus{
+
+    background:#C86B6B;
+
+}
+
+.product-counter button.minus:hover{
+
+    background:#B25555;
+
+}
+
+.product-counter button.plus{
+
+    background:var(--green);
+
+}
+
+.product-counter button.plus:hover{
+
+    background:var(--green-dark);
+
+}
+
+/*==================================================
+    Low Stock
+==================================================*/
+
+.low-stock{
+
+    color:#D32F2F !important;
+
+    font-weight:bold;
+
+}
+
+.out-stock{
+
+    color:white !important;
+
+    background:#D32F2F;
+
+    display:inline-block;
+
+    padding:4px 10px;
+
+    border-radius:999px;
+
+    font-weight:bold;
+
+}
+
+/*==================================================
+    Sold Badge
+==================================================*/
+
+.sold-badge{
+
+    display:inline-block;
+
+    margin-top:10px;
+
+    padding:6px 14px;
+
+    background:#F9C9D7;
+
+    color:#7A3145;
+
+    border-radius:999px;
+
+    font-size:.9rem;
+
+    font-weight:bold;
+
+}
+
+/*==================================================
+    Scrollbar
+==================================================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#F3EEDC;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--green);
+
+    border-radius:999px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--green-dark);
+
+}
+
+/*==================================================
+    Responsive
+==================================================*/
+
+@media (max-width:900px){
+
+    .dashboard{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
 
     .product-card{
 
@@ -350,35 +704,150 @@ footer{
 
         width:100%;
 
-        justify-content:flex-end;
+        justify-content:center;
+
+        margin-top:15px;
 
     }
 
 }
-/* ==========================================
-   商品情報
-========================================== */
 
-.product-stats{
+@media (max-width:600px){
 
-    margin-top:12px;
+    .header{
 
-    display:flex;
+        padding:28px 15px;
 
-    flex-direction:column;
+    }
 
-    gap:6px;
+    .logo-area h1{
 
-    font-size:.95rem;
+        font-size:1.8rem;
 
-    color:#666;
+    }
+
+    .dashboard{
+
+        grid-template-columns:1fr;
+
+        gap:15px;
+
+    }
+
+    .card{
+
+        padding:20px;
+
+    }
+
+    .card p{
+
+        font-size:1.8rem;
+
+    }
+
+    .products h2{
+
+        font-size:1.5rem;
+
+    }
+
+    .product-card{
+
+        padding:18px;
+
+        gap:18px;
+
+    }
+
+    .product-image{
+
+        width:72px;
+
+        height:72px;
+
+        align-self:center;
+
+    }
+
+    .product-info h3{
+
+        font-size:1.15rem;
+
+        text-align:center;
+
+    }
+
+    .price{
+
+        font-size:1.5rem;
+
+        text-align:center;
+
+    }
+
+    .product-stats{
+
+        text-align:center;
+
+    }
+
+    .product-counter{
+
+        gap:12px;
+
+    }
+
+    .product-counter button{
+
+        width:56px;
+
+        height:56px;
+
+        font-size:1.7rem;
+
+    }
 
 }
 
-.product-sales{
+/*==================================================
+    Print
+==================================================*/
 
-    color:var(--orange);
+@media print{
 
-    font-weight:bold;
+    body{
+
+        background:white;
+
+    }
+
+    .header{
+
+        box-shadow:none;
+
+    }
+
+    #resetButton,
+
+    .product-counter{
+
+        display:none;
+
+    }
+
+    .product-card{
+
+        break-inside:avoid;
+
+        box-shadow:none;
+
+        border:1px solid #CCC;
+
+    }
 
 }
+
+/*==================================================
+    End
+==================================================*/
