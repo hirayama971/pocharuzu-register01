@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ぽちゃるずレジ</title>
+
+    <meta name="theme-color" content="#4E6A52">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ヘッダー -->
+    <header class="header">
+
+        <div class="logo-area">
+            <h1>☕ ぽちゃるずレジ</h1>
+            <p>Pocharuzu Register</p>
+        </div>
+
+    </header>
+
+    <!-- ダッシュボード -->
+    <section class="dashboard">
+
+        <div class="card sales-card">
+
+            <h2>本日の売上</h2>
+
+            <p id="totalSales">¥0</p>
+
+        </div>
+
+        <div class="card count-card">
+
+            <h2>販売数</h2>
+
+            <p id="totalCount">0個</p>
+
+        </div>
+
+    </section>
+
+    <!-- 商品一覧 -->
+    <main>
+
+        <section class="products">
+
+            <h2>商品一覧</h2>
+
+            <div id="productList">
+
+                <!-- JavaScriptで商品カードを生成 -->
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- フッター -->
+    <footer>
+
+        <button id="resetButton">
+            売上をリセット
+        </button>
+
+        <p class="copyright">
+            © pocharuzu
+        </p>
+
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/products.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
