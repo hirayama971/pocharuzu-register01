@@ -9,12 +9,36 @@ const STORAGE_KEY = "pocharuzu-register-data";
 
 let salesData = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
+// 初回起動時
 if (!salesData) {
-    salesData = products.map(product => ({
-        id: product.id,
-        sold: 0
-    }));
+
+    salesData = [];
+
 }
+
+// 新しく追加された商品を自動登録
+products.forEach(product => {
+
+    const exists = salesData.find(item => item.id === product.id);
+
+    if (!exists) {
+
+        salesData.push({
+
+            id: product.id,
+            sold: 0
+
+        });
+
+    }
+
+});
+
+// 保存し直す
+localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify(salesData)
+);
 
 // ---------- 要素取得 ----------
 
