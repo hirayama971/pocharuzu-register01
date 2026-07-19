@@ -40,9 +40,33 @@ function renderProducts(){
 
             <p class="price">¥${product.price}</p>
 
-            <p class="stock">
-                在庫：${product.stock}
-            </p>
+<div class="product-stats">
+
+    <p class="stock">
+        在庫：
+        <span id="stock-${product.id}">
+            ${product.stock - cart[product.id]}
+        </span>
+    </p>
+
+    <p>
+        販売：
+        <span id="sold-${product.id}">
+            ${cart[product.id]}
+        </span>
+    </p>
+
+    <p class="product-sales">
+
+        売上：
+
+        <span id="sales-${product.id}">
+            ¥${(cart[product.id] * product.price).toLocaleString()}
+        </span>
+
+    </p>
+
+</div>
 
         </div>
 
@@ -110,6 +134,20 @@ function plusProduct(id){
         "count-"+id
 
     ).textContent = cart[id];
+    const product = products.find(p => p.id === id);
+
+document.getElementById(
+    "stock-"+id
+).textContent = product.stock - cart[id];
+
+document.getElementById(
+    "sold-"+id
+).textContent = cart[id];
+
+document.getElementById(
+    "sales-"+id
+).textContent =
+"¥" + (cart[id] * product.price).toLocaleString();
 
     updateTotals();
 
@@ -132,6 +170,20 @@ function minusProduct(id){
     document.getElementById(
 
         "count-"+id
+        const product = products.find(p => p.id === id);
+
+document.getElementById(
+    "stock-"+id
+).textContent = product.stock - cart[id];
+
+document.getElementById(
+    "sold-"+id
+).textContent = cart[id];
+
+document.getElementById(
+    "sales-"+id
+).textContent =
+"¥" + (cart[id] * product.price).toLocaleString();
 
     ).textContent = cart[id];
 

@@ -355,3 +355,30 @@ footer{
     }
 
 }
+/* ==========================================
+   商品情報
+========================================== */
+
+.product-stats{
+
+    margin-top:12px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:6px;
+
+    font-size:.95rem;
+
+    color:#666;
+
+}
+
+.product-sales{
+
+    color:var(--orange);
+
+    font-weight:bold;
+
+}
